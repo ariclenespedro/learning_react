@@ -1,0 +1,14 @@
+function Form() {
+    return(
+        <div>
+            <form>
+                <div>
+                    <input type="text" />
+                    <button></button>
+                </div>
+            </form>
+        </div>
+    )
+}
+
+export default Form;
