@@ -1,18 +1,25 @@
-function registrar(e) {
-    e.preventDefault();
-    document.getElementById('info').innerText = "Registrado com sucesso";
-}
-
-
+import { useState } from "react";
 function Form() {
+
+    function registrar(e) {
+        e.preventDefault();
+        document.getElementById('info').innerText = "O utilizador "+nome+ " com a senha " + senha;
+    }
+
+    const [nome,setnome] = useState();
+    const [senha,setsenha] = useState();
     return(
         <div>
             <form id="myForm" onSubmit={registrar}>
                 <div>
-                    <label>Nome: </label>
+                    <label htmlFor="nome">Nome: </label>
+                    <input type="text" id="nome" placeholder="Digite o nome do utilizador  "
+                    onChange={(e) => setnome(e.target.value)} />
                 </div>
                 <div>
-                    <input type="text" placeholder="Digite o nome do utilizador  "/>
+                <label htmlFor="senha">Senha: </label>
+                    <input type="password" id="senha" placeholder="Digite uma senha"
+                    onChange={(e) =>(setsenha(e.target.value))}/>
                 </div>
                 <div>
                     <input type="submit" value={"Cadastrar"} />
