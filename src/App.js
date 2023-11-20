@@ -1,31 +1,23 @@
 /* import logo from './logo.svg'; */
 import './App.css';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Home from "./pages/Home";
+import Empresa from "./pages/Empresa";
+import Contactos from "./pages/Contactos";
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
 
 function App() {
 
   return (
-    /* <div className="App"></div> */
     <Router>
-      <ul>
-        <li>
-          <Link to="/"> Home</Link>
-        </li>
-        <li>
-          <Link to="/empresa"> Empresa</Link>
-        </li>
-        <li>
-          <Link to="/contactos"> Contacto </Link>
-        </li>
-      </ul>
-
-
+      <Navbar />
       <Routes>
-        <Route path='/'>
-          <Home />
-        </Route>
+        <Route path='/' exact element={<Home/>}></Route>
+        <Route path='/empresa' exact element={<Empresa/>}></Route>
+        <Route path='/contactos' exact element={<Contactos/>}></Route>
       </Routes>
+      <Footer/>
     </Router>
   );
 }
